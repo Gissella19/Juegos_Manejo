@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mk.js</title>
+    <script src="src/movement.js"></script>
+    <script src="src/mk.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body style="margin:0; padding:0; overflow:hidden; height:100vh;">
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100vh; max-height: 100vh; box-sizing: border-box;">
+            <div style="flex: 1 1 0; display: flex; align-items: center; justify-content: center; min-width: 0; height: 100vh; max-height: 100vh;">
+                <div id="parent" style="width: 100%; height: 100%; max-width: none; max-height: none; display: flex; flex-direction: column; justify-content: center;">
+                    <div id="utils">
+                        <div id="player1Name" class="playerName">Sub-Zero</div>
+                        <div id="player1LifeBar" class="lifebar"><div class="life" id="player1Life"></div></div>
+                        <div id="player2Name" class="playerName">Kano</div>
+                        <div id="player2LifeBar" class="lifebar"><div class="life" id="player2Life"></div></div>
+                    </div>
+                    <div id="arena" style="flex:1; width: 100%; height: 100%;"></div>
+                    <div id="loading">
+                        <span class="loadingLabel">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div id="instrucciones" style="flex: 0 0 420px; display: flex; align-items: flex-start; justify-content: flex-end; padding: 40px 60px 0 40px; box-sizing: border-box;">
+                <div style="max-width: 400px; background: rgba(0,0,0,0.7); color: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); text-align: justify; font-size: 1.1em; width: 100%;">
+                    <h2 style="text-align:center; margin-top:0;">Instrucciones</h2>
+                    <ul style="padding-left: 20px;">
+                        <li>Usa las siguientes teclas para controlar a tu luchador:</li>
+                        <li><b>↑</b> - Saltar</li>
+                        <li><b>↓</b> - Agacharse</li>
+                        <li><b>←</b> - Moverse a la izquierda</li>
+                        <li><b>→</b> - Moverse a la derecha</li>
+                        <li><b>A</b> - Puñetazo hacia arriba</li>
+                        <li><b>S</b> - Puñetazo hacia medio</li>
+                        <li><b>D</b> - Patada</li>
+                        <li><b>Espacio</b> - Reiniciar juego</li>
+                    </ul>
+                    <ul style="padding-left: 20px; margin-top: 18px;">
+                        <li>Para jugar en red, ambos jugadores deben estar en la misma red WiFi o LAN.</li>
+                        <li>El primer jugador debe responder <b>yes</b> a "Are you going to be host?" y crear el juego con un nombre.</li>
+                        <li>El segundo jugador debe responder <b>no</b> y escribir exactamente el mismo nombre de juego para unirse.</li>
+                        <li>Si juegas desde otro dispositivo, accede a <b>http://IP_DEL_HOST:3000</b> desde el navegador.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <script>
+        (function () {
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+   
+            function setLife(container, life) {
+                container.style.width = life + '%';
+            }
+
+            document.onkeydown = function (e) {
+                if (e.keyCode === 32) {
+                    window.location.reload();
+                }
+            };
+
+            (function () {
+                
+                var startGame = function () {
+                    $('loading').style.visibility = 'hidden';
+                    $('arena').style.visibility = 'visible';
+                    $('utils').style.visibility = 'visible';
+                };
+                
+                var options = {
+                    arena: {
+                        container: document.getElementById('arena'),
+                        arena: mk.arenas.types.THRONE_ROOM
+                    },
+                    fighters: [{ name: 'Subzero' }, { name: 'Kano' }],
+                    callbacks: {
+                        attack: function (f, o, l) {
+                            if (o.getName() === 'kano') {
+                                setLife($('player2Life'), o.getLife());
+                            } else {
+                                setLife($('player1Life'), o.getLife());
+                            }
+                        }
+
+                    },
+                    isHost: /^yes$/i.test(prompt('Are you going to be host?')),
+                    gameName: prompt('Enter game name:'),
+                    gameType: 'network'
+                };
+
+                function startNewGame() {
+                    mk.start(options).ready(function () {
+                        startGame();
+                    });
+                }
+                
+                startNewGame();
+                
+            }());
+
+        }());
+    </script>
+</body>
+</html>
