@@ -1,0 +1,11 @@
+{
+    "name": "mk.js-server",
+    "version": "0.0.1",
+    "author": "Minko Gechev @mgechev",
+    "description": "Node.js server for mk.js",
+    "dependencies": {
+        "express": "^4.18.2",
+        "socket.io": "^4.7.5"
+    },
+    "license": "MIT"
+}
