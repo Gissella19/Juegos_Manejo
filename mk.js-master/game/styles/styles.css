@@ -1,146 +1,491 @@
 table {
-    margin: auto;
+  margin: auto;
 }
 td {
-    padding: 10px;
+  padding: 10px;
 }
 th {
-    font-size: 19px;
+  font-size: 19px;
 }
 .instructions-list {
-    margin-left: 150px;
+  margin-left: 150px;
 }
 h1 {
-    text-align: center;
+  text-align: center;
 }
 canvas {
-    border: 3px solid white;
-    border-radius: 5px;
+  border: 3px solid white;
+  border-radius: 5px;
 }
 #movementjs-main-canvas {
-    -webkit-transform: scale(-1, 1);
-    -moz-transform: scale(-1, 1);
-    position: static !important;
-    width: 600px;
-    height: 400px;
-    background-color: #777;
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  position: static !important;
+  width: 600px;
+  height: 400px;
+  background-color: #777;
 }
-body, html {
-    background-color: black;
-    color: #fff;
-    font-family: Verdana;
-    font-size: 12px;
+body,
+html {
+  background-color: black;
+  color: #fff;
+  font-family: Verdana;
+  font-size: 12px;
 }
 #parent {
-    width: 600px;
-    height: 400px;
-    position: relative;
-    border-radius: 10px;
+  width: 600px;
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
 }
 #arena {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 #loading {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 .lifebar {
-    width: 200px;
-    height: 15px;
-    background-color: red;
-    position: absolute;
+  width: 200px;
+  height: 15px;
+  background-color: red;
+  position: absolute;
 }
 #player1LifeBar {
-    left: 20px;
-    top: 30px;
-    border-bottom-right-radius: 15px;
+  left: 20px;
+  top: 30px;
+  border-bottom-right-radius: 15px;
 }
-#player1LifeBar .life
-{
-    border-bottom-right-radius: 15px;
-    float: left;
+#player1LifeBar .life {
+  border-bottom-right-radius: 15px;
+  float: left;
 }
 #player2LifeBar {
-    right: 20px;
-    top: 30px;
-    border-bottom-left-radius: 15px;
+  right: 20px;
+  top: 30px;
+  border-bottom-left-radius: 15px;
 }
-#player2LifeBar .life
-{
-    border-bottom-left-radius: 15px;
-    float: right;
+#player2LifeBar .life {
+  border-bottom-left-radius: 15px;
+  float: right;
 }
 .playerName {
-    color: white;
-    font-weight: bold;
-    font-style: italic;
-    font-family: Verdana;
-    font-size: 14px;
-    position: absolute;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Verdana;
+  font-size: 14px;
+  position: absolute;
 }
 #player1Name {
-    left: 30px;
-    top: 10px;
+  left: 30px;
+  top: 10px;
 }
 #player2Name {
-    right: 30px;
-    top: 10px;
+  right: 30px;
+  top: 10px;
 }
 .life {
-    width: 100%;
-    height: 100%;
-    background-color: #3CD400;
+  width: 100%;
+  height: 100%;
+  background-color: #3cd400;
 }
 #utils {
-    visibility: hidden;
-    z-index: 100;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
+  visibility: hidden;
+  z-index: 100;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
 }
 .manual {
-    width: 600px;
-    margin: auto;
-    color: #fff;
-    font-family: Verdana;
-    margin-top: 15px;
-    font-size: 14px;
+  width: 600px;
+  margin: auto;
+  color: #fff;
+  font-family: Verdana;
+  margin-top: 15px;
+  font-size: 14px;
 }
 .manual > div {
-    margin-left: 150px;
+  margin-left: 150px;
 }
 .manual a {
-    color: #fff;
+  color: #fff;
 }
 .github {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    background-image: url(../images/github.png);
-    width: 149px;
-    height: 149px;
-    cursor: pointer;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-image: url(../images/github.png);
+  width: 149px;
+  height: 149px;
+  cursor: pointer;
 }
 .formContainer {
-    margin: auto;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .loadingLabel {
-    font-size: 25px;
-    font-weight: bold;
-    position: absolute;
-    left: 220px;
-    top: 150px;
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  left: 220px;
+  top: 150px;
+}
+
+body {
+  background-color: #050505;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: calc((100vw - 1100px) / 2);
+  height: 100%;
+  background-image: url("../images/tus-flamas.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+body::before {
+  left: 0;
+}
+
+body::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+#parent {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+#setupModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  font-family: sans-serif;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 6px solid #0056b3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  width: 350px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.modal-content input:focus {
+  border-color: #007bff;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-content button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+#btnInfo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s,
+    background-color 0.3s;
+}
+
+#btnInfo:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+#infoPanel {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 400px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  transition: right 0.3s ease;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  color: white;
+  overflow-y: auto;
+  border-left: 3px solid #0056b3;
+  font-family: sans-serif;
+}
+
+#infoPanel.open {
+  right: 0;
+}
+
+#btnCloseInfo {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: color 0.2s;
+}
+
+#btnCloseInfo:hover {
+  color: #007bff;
+}
+
+#infoPanel h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.info-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-top: 4px solid #007bff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #007bff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+kbd {
+  background-color: #222;
+  border: 1px solid #007bff;
+  border-radius: 6px;
+  box-shadow:
+    0 3px 0 #0056b3,
+    0 4px 6px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 10px;
+  min-width: 24px;
+  text-transform: uppercase;
+}
+
+.lifebar .life {
+  background-color: #007bff !important;
+}
+#endGameModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  font-family: sans-serif;
+}
+
+#parent {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#utils {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.hud-player {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-player:nth-child(1) {
+  left: 40px;
+  align-items: flex-start;
+}
+
+.hud-player:nth-child(2) {
+  right: 40px;
+  align-items: flex-end;
+}
+
+.playerName {
+  font-family: "Teko", sans-serif;
+  font-size: 34px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    2px 2px 0px #000000,
+    -1px -1px 0px #0056b3;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 210;
+  line-height: 1;
+}
+
+.lifebar {
+  width: 350px;
+  height: 25px;
+  background: #111111;
+  border: 3px solid #333333;
+  box-shadow:
+    inset 0 0 10px #000000,
+    0 0 12px #007bff;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lifebar .life {
+  height: 100%;
+  background: linear-gradient(to bottom, #007bff, #0056b3) !important;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.4);
+  transition: width 0.2s ease-out;
+}
+
+#arena canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  background-size:
+    100% 4px,
+    3px 100%;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+}
+
+#arenaSelect:focus {
+  border-color: #007bff;
 }
