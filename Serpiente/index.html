@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slither Snake 2P - Web Edition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- MENÚ DE INICIO -->
+        <div id="menu-screen" class="screen">
+            <img src="img/Slither.png" alt="Slither Logo" class="logo" id="logo-img" onerror="this.style.display='none'">
+            <h1 class="title">SLITHER SNAKE</h1>
+
+            <!-- MODO DE JUEGO -->
+            <div class="section">
+                <label>MODO DE JUEGO:</label>
+                <div class="btn-group">
+                    <button id="btn-1p" class="btn active-mode">1 JUGADOR</button>
+                    <button id="btn-2p" class="btn">2 JUGADORES</button>
+                </div>
+            </div>
+
+            <!-- DIFICULTAD -->
+            <div class="section">
+                <label>DIFICULTAD:</label>
+                <div class="btn-group">
+                    <button id="btn-facil" class="btn btn-diff">Fácil</button>
+                    <button id="btn-medio" class="btn btn-diff active-diff">Medio</button>
+                    <button id="btn-dificil" class="btn btn-diff">Difícil</button>
+                </div>
+            </div>
+
+            <!-- CONTROLES DE COLOR -->
+            <div class="section">
+                <label>COLOR JUGADOR 1 (WASD / Teclas A-D):</label>
+                <div class="selector-color">
+                    <button id="p1-prev" class="btn-nav">&lt;</button>
+                    <div id="p1-box" class="color-preview"><span class="dot"></span> <span id="p1-color-name">Verde</span></div>
+                    <button id="p1-next" class="btn-nav">&gt;</button>
+                </div>
+            </div>
+
+            <div class="section" id="p2-color-section" style="opacity: 0.5;">
+                <label>COLOR JUGADOR 2 (Flechas &lt; / &gt;):</label>
+                <div class="selector-color">
+                    <button id="p2-prev" class="btn-nav" disabled>&lt;</button>
+                    <div id="p2-box" class="color-preview"><span class="dot"></span> <span id="p2-color-name">Naranja</span></div>
+                    <button id="p2-next" class="btn-nav" disabled>&gt;</button>
+                </div>
+            </div>
+
+            <!-- REGLAS Y BOTÓN JUGAR -->
+            <div id="rules-2p" class="rules hidden">
+                <p>• P1: Controles [W, A, S, D] | P2: Controles [Flechas]</p>
+                <p class="gold">• Regla 1: ¡El primero en alcanzar 30 PUNTOS gana!</p>
+                <p class="gold">• Regla 2: Las PAREDES NO MATAN en 2P (Atraviesas pantalla)</p>
+                <p class="gold">• Regla 3: Si tu cabeza toca el CUERPO del rival, PIERDES</p>
+            </div>
+
+            <button id="btn-play" class="btn-start">¡ INICIAR JUEGO !</button>
+        </div>
+
+        <!-- PANTALLA DE JUEGO -->
+        <div id="game-screen" class="screen hidden">
+            <div id="hud">
+                <span id="score-p1" class="hud-item">Puntaje: 0</span>
+                <span id="score-p2" class="hud-item hidden">P2: 0 / 30</span>
+            </div>
+            <canvas id="gameCanvas" width="700" height="700"></canvas>
+        </div>
+
+        <!-- PANTALLA DE GAME OVER -->
+        <div id="gameover-screen" class="screen hidden overlay">
+            <h1 id="go-title">FIN DE LA PARTIDA</h1>
+            <h2 id="go-winner"></h2>
+            <p id="go-score"></p>
+            <p class="subtext">Presiona <strong>ESPACIO</strong> para volver a jugar</p>
+            <p class="subtext">Presiona <strong>M</strong> para ir al Menú Principal</p>
+            <button id="btn-restart" class="btn-start">Volver a Jugar</button>
+            <button id="btn-menu" class="btn-start btn-secondary">Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
