@@ -95,5 +95,10 @@
     btnCloseInfo.onclick = function () {
       infoPanel.classList.remove("open");
     };
+
+    var btnBack = $("btnBack");
+    btnBack.onclick = function () {
+      window.location.href = "http://127.0.0.1:5500/index.html";
+    };
   })();
 })();

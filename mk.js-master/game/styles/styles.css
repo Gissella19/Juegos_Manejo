@@ -489,3 +489,29 @@ kbd {
 #arenaSelect:focus {
   border-color: #007bff;
 }
+
+#btnBack {
+  position: fixed;
+  top: 25px;
+  left: 30px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 22px;
+  font-family: "Teko", sans-serif;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  transition:
+    transform 0.2s,
+    background-color 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#btnBack:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
