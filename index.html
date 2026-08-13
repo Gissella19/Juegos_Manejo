@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nombre del Equipo — Sala de Juegos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--
+  ============================================================
+  CÓMO EDITAR ESTA PÁGINA (guía rápida para el equipo)
+  ============================================================
+  1. NOMBRE DEL EQUIPO Y DESCRIPCIÓN
+     -> Editar el texto dentro de <h1 class="team-name"> y
+        <p class="tagline"> más abajo, en la sección .hero
+
+  2. CADA INTEGRANTE sin juego aún es una tarjeta <div class="card
+     placeholder"> (a propósito NO es un link, para no aparentar
+     que se puede tocar algo que todavía no existe).
+     Para activar a alguien que ya tiene su juego listo:
+       - cambiar la etiqueta de <div ...> a <a ...> (abrir Y cerrar)
+       - quitar class="placeholder"
+       - agregar href="ruta/index.html", ej: href="diego/index.html"
+       - cambiar <span class="status-badge status-off">🔒 Próximamente</span>
+         por <span class="status-badge status-on">🟢 Disponible</span>
+       - cambiar el texto de <span class="play-btn"> de
+         "▶ Próximamente" a "▶ Jugar <nombre del juego>"
+     Para la foto: reemplazar img/integranteN.jpg por la ruta real.
+     Si no hay foto o falla la carga, se muestra el avatar con
+     iniciales automáticamente (no hay que tocar el JS).
+
+  3. data-accent="terracota | salvia | oliva | rosa" controla el
+     color de cada tarjeta — repártanlos como prefieran.
+  ============================================================
+-->
+  </head>
+  <body>
+    <header class="hero">
+      <span class="eyebrow">Manejo y Configuración de Software · UTA</span>
+      <h1 class="team-name">Desarrollo de una Página Web en Equipo</h1>
+      <p class="tagline">
+        Somos un equipo de <strong>6 desarrolladores</strong> y esta es nuestra
+        sala de juegos: una colección de minijuegos hechos íntegramente por
+        nosotros con HTML, CSS y JavaScript. Cada integrante diseñó y programó
+        el suyo — toca cualquier tarjeta marcada como
+        <strong>Disponible</strong> para jugarla.
+      </p>
+    </header>
+
+    <main class="section">
+      <div class="section-head">
+        <h2>Integrantes</h2>
+        <span class="count" id="memberCount"></span>
+        <div class="legend">
+          <span class="legend-item"
+            ><span class="dot dot-on"></span>Disponible — toca para jugar</span
+          >
+          <span class="legend-item"
+            ><span class="dot dot-off"></span>Próximamente</span
+          >
+        </div>
+      </div>
+
+      <div class="roster">
+        <!-- ---------- Jugador 01 — Fernando ---------- -->
+        <div class="card placeholder" data-accent="salvia">
+          <div class="player-tag">Jugador 01</div>
+          <span class="status-badge status-off">🔒 Próximamente</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/fernado.jpg"
+              alt="Foto de Alina"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Fernando David Llerena Urrutia</p>
+          <p class="member-role">Desarrolladora Frontend</p>
+          <p class="member-desc">
+            Encargada de la interfaz de usuario. Desarrollará un conversor
+            interactivo.
+          </p>
+          <span class="play-btn">▶ Próximamente</span>
+        </div>
+
+        <!-- ---------- Jugador 02 — Monserrath (Activa) ---------- -->
+        <a
+          class="card"
+          data-accent="terracota"
+          href="sendero-plataformas/index.html"
+        >
+          <div class="player-tag">Jugador 02</div>
+          <span class="status-badge status-on">🟢 Disponible</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/monserrath.jpg"
+              alt="Foto de Monserrath"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Darlyn Monserrath</p>
+          <p class="member-role">Diseñadora de Lógica</p>
+          <p class="member-desc">
+            Diseñó y programó "Sendero", un juego de plataformas con generación
+            procedural y física de colisiones.
+          </p>
+          <span class="play-btn">▶ Jugar Sendero</span>
+        </a>
+
+        <!-- ---------- Jugador 03 — Diego ---------- -->
+        <div class="card placeholder" data-accent="oliva">
+          <div class="player-tag">Jugador 03</div>
+          <span class="status-badge status-off">🔒 Próximamente</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/diego.jpg"
+              alt="Foto de Diego"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Diego</p>
+          <p class="member-role">Desarrollador Backend</p>
+          <p class="member-desc">
+            Especialista en lógica matemática. Trabajando en una calculadora
+            especializada.
+          </p>
+          <span class="play-btn">▶ Próximamente</span>
+        </div>
+
+        <!-- ---------- Jugador 04 — Daniela ---------- -->
+        <div class="card placeholder" data-accent="rosa">
+          <div class="player-tag">Jugador 04</div>
+          <span class="status-badge status-off">🔒 Próximamente</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/daniela.jpg"
+              alt="Foto de Paola"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Daniela</p>
+          <p class="member-role">Ingeniera de Pruebas</p>
+          <p class="member-desc">
+            Supervisa la calidad del código. Desarrollará un minijuego de
+            agilidad mental.
+          </p>
+          <span class="play-btn">▶ Próximamente</span>
+        </div>
+
+        <!-- ---------- Jugador 05 — Gisselle ---------- -->
+        <a
+          class="card"
+          data-accent="salvia"
+          href="http://localhost:3000"
+          target="_blank"
+        >
+          <div class="player-tag">Jugador 05</div>
+          <span class="status-badge status-on">🟢 Disponible</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/gisselle.png"
+              alt="Foto de Gisselle"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Gisselle</p>
+          <p class="member-role">Desarrollador Backend</p>
+          <p class="member-desc">
+            Centrada en arquitectura de sistemas y construccion de
+            infraestructura de proyectos.
+          </p>
+          <span class="play-btn">▶ Jugar</span>
+        </a>
+
+        <!-- ---------- Jugador 06 —  ---------- -->
+        <div class="card placeholder" data-accent="terracota">
+          <div class="player-tag">Jugador 06</div>
+          <span class="status-badge status-off">🔒 Próximamente</span>
+          <div class="avatar">
+            <span class="initials"></span>
+            <img
+              src="img/sin.jpg"
+              alt="Foto de Rolando"
+              onerror="this.remove()"
+              onload="
+                this.previousElementSibling.style.display = 'none';
+                this.style.display = 'block';
+              "
+            />
+          </div>
+          <p class="member-name">Barragan</p>
+          <p class="member-role">Desarrollador de UI/UX</p>
+          <p class="member-desc">
+            Responsable de la experiencia del usuario. Integrará una herramienta
+            interactiva al sitio.
+          </p>
+          <span class="play-btn">▶ Próximamente</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      UTA · FISEI · Carrera de Software · Manejo y Configuración de Software
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
